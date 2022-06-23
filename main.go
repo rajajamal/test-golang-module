@@ -1,10 +1,19 @@
 package main
 
 import (
-	"log"
-
 	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
+	"github.com/rajajamal/test-golang-module/framework/configs"
+	"github.com/rajajamal/test-golang-module/framework/models"
 )
+
+func init() {
+	godotenv.Load()
+	configs.Load()
+	configs.Db.AutoMigrate(
+		&models.User{},
+	)
+}
 
 func main() {
 	app := fiber.New()
@@ -13,5 +22,5 @@ func main() {
 		return c.SendString("مرحبا بالعالم")
 	})
 
-	log.Fatal(app.Listen(":3000"))
+	app.Listen(":3000")
 }
