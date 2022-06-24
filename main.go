@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fiber/configs"
-	"fiber/models"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
+	"github.com/rajajamal/test-golang-module/configs"
+	"github.com/rajajamal/test-golang-module/models"
+)
 
 func init() {
 	godotenv.Load()
